@@ -227,7 +227,7 @@ public class UpdateMemberView extends JFrame{
     UpdateMemberController controller = new UpdateMemberController(this);   
 	//btnJoin = new JButton("정보변경");
 	btnJoin = new RoundedButton("정보변경");
-	btnJoin.setFont(new Font("바탕", Font.PLAIN, 12));
+	btnJoin.setFont(new Font("바탕", Font.PLAIN, 14));
 	btnJoin.setBackground(new Color(255, 204, 0));
 	btnJoin.addActionListener(new ActionListener() {
 		@Override
@@ -288,7 +288,7 @@ public class UpdateMemberView extends JFrame{
 	
 	//cancel = new JButton("취소");
 	cancel = new RoundedButton("취소");
-	cancel.setFont(new Font("바탕", Font.PLAIN, 12));
+	cancel.setFont(new Font("바탕", Font.PLAIN, 14));
 	cancel.setBackground(new Color(255, 204, 0));
 	cancel.addActionListener(new ActionListener() {	
 		@Override

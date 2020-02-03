@@ -134,7 +134,7 @@ public class UpdateSecurityCheckView extends JFrame{
         UpdateSecurityCheckController controller = new UpdateSecurityCheckController(this);
         //btnLogin = new JButton("본인확인");
         btnLogin = new RoundedButton("본인확인");
-        btnLogin.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+        btnLogin.setFont(new Font("맑은 고딕", Font.PLAIN, 14));
         btnLogin.setBackground(new Color(255, 204, 0));
         btnLogin.addActionListener(new ActionListener(){
             @Override

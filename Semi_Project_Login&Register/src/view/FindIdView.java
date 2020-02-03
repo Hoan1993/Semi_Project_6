@@ -135,7 +135,7 @@ public class FindIdView extends JFrame{
         // 아이디 찾기
         FindIdController controller = new FindIdController(this);
         btnLogin = new RoundedButton("아이디찾기");
-        btnLogin.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+        btnLogin.setFont(new Font("맑은 고딕", Font.PLAIN, 14));
         btnLogin.setBackground(new Color(255, 204, 0));
         btnLogin.addActionListener(new ActionListener(){
             @Override

@@ -6,5 +6,6 @@ public class ProjectStart {
 		LoginView view = new LoginView();
 		view.setVisible(true);
 	}
+	
 }
 

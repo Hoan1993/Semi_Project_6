@@ -140,7 +140,7 @@ public class MyPageView extends JFrame {
 		
 		//btnJoin = new JButton("정보변경");
 		btnJoin = new RoundedButton("정보변경");
-		btnJoin.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+		btnJoin.setFont(new Font("맑은 고딕", Font.PLAIN, 14));
 		btnJoin.setBackground(new Color(255, 204, 0));
 		btnJoin.setFocusable(true);
 		btnJoin.addActionListener(new ActionListener() {

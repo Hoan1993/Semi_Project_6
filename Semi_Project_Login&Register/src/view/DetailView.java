@@ -28,7 +28,7 @@ public class DetailView extends JFrame{
 	
 	public DetailView(MemberVO mVo, Food_VO fVo) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+		setTitle("상세페이지");
 		setBounds(100, 100, 687, 570);
 		setLocationRelativeTo(null);
 	

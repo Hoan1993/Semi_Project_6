@@ -121,7 +121,7 @@ public class LoginView extends JFrame {
         // 로그인 버튼
         LoginController controller = new LoginController(this);
         btnLogin = new RoundedButton("로그인");
-        btnLogin.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+        btnLogin.setFont(new Font("맑은 고딕", Font.PLAIN, 14));
         btnLogin.setBounds(41, 414, 310, 31);
         btnLogin.setBackground(new Color(255, 204, 0));
         btnLogin.setFocusable(true);
@@ -135,7 +135,7 @@ public class LoginView extends JFrame {
         
         
         JButton btnJoin= new RoundedButton("회원가입");
-        btnJoin.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+        btnJoin.setFont(new Font("맑은 고딕", Font.PLAIN, 14));
         btnJoin.setBounds(41, 450, 310, 31);
         btnJoin.setBackground(new Color(255, 204, 0));
        /* btnJoin.addActionListener(new ActionListener());*/
@@ -238,7 +238,7 @@ public class LoginView extends JFrame {
         contentPane.add(hyperlink2);
         
         lblErrorMessage = new JLabel("");
-        lblErrorMessage.setBounds(12, 385, 330, 25);
+        lblErrorMessage.setBounds(12, 392, 330, 25);
         lblErrorMessage.setHorizontalAlignment(SwingConstants.RIGHT);
         lblErrorMessage.setForeground(Color.RED);
         lblErrorMessage.setFont(new Font("Tahoma", Font.PLAIN, 14));

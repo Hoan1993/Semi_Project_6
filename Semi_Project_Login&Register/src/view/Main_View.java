@@ -38,7 +38,7 @@ public class Main_View extends JFrame {
 	
 	// 0130. 여기서부터 추가된 코드.
 	private JPanel contentPane;
-	private byte barr[];
+	private byte barr[]; 
 	
 	private static Food_VO fVo1 = new Food_VO();
 	private static Food_VO fVo2 = new Food_VO();
@@ -132,7 +132,8 @@ public class Main_View extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "입력금액에 맞는 한 달 식단을 짜 드립니다.");
+				dispose();
+				Button_Calandar bc = new Button_Calandar("Me", 1, "1", mVo);
 				
 			}
 		});

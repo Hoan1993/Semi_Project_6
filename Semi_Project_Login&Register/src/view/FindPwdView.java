@@ -162,7 +162,7 @@ public class FindPwdView extends JFrame {
         FindPwdController controller = new FindPwdController(this);
         btnLogin = new RoundedButton("비밀번호찾기");
         btnLogin.setBackground(new Color(255, 204, 0));
-        btnLogin.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+        btnLogin.setFont(new Font("맑은 고딕", Font.PLAIN, 14));
         btnLogin.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent arg0) {
