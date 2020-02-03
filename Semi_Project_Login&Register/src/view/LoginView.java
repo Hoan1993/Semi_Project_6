@@ -43,7 +43,7 @@ public class LoginView extends JFrame {
     private JLabel hyperlink2 = new JLabel(text2);
 
     public LoginView() {
-    	
+    	// 깃 테스트
     	setFont(new Font("바탕", Font.PLAIN, 12));	
     	getContentPane().setBackground(Color.WHITE);
         setTitle("가만안둬조");
