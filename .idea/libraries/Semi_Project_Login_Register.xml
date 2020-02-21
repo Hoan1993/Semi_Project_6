@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Semi_Project_Login&amp;Register">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Semi_Project_Login&amp;Register/ojdbc6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Semi_Project_Login&amp;Register/mail-1.4.7.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
