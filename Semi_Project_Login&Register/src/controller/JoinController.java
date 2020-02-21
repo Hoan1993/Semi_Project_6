@@ -53,6 +53,7 @@ public class JoinController {
 				txtUserid.setText("");
 				txtUserid.requestFocus();
 			} else {
+				System.out.println(mVo.toString());
 				JOptionPane.showMessageDialog(null, "이미 사용중인 이메일입니다. 다른 이메일을 쓰세요.");
 				txtUserEmail.setText("");
 				txtUserEmail.requestFocus();

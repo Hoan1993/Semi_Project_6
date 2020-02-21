@@ -3,17 +3,14 @@ package model;
 import javax.swing.ImageIcon;
 
 public class Food_VO {
-	int bno;
-	ImageIcon icon;
-	ImageIcon icon2;
-	String store_name;
-	String food_name;
-	int price;
-	String review;
-	String address;
-	
-	
-	
+	private int bno;
+	private ImageIcon icon;
+	private ImageIcon icon2;
+	private String store_name;
+	private String food_name;
+	private int price;
+	private String review;
+	private String address;
 	
 	public int getBno() {
 		return bno;
@@ -63,6 +60,14 @@ public class Food_VO {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	
+	@Override
+	public String toString() {
+		return "Food_VO [bno=" + bno + ", icon=" + icon + ", icon2=" + icon2 + ", store_name=" + store_name
+				+ ", food_name=" + food_name + ", price=" + price + ", review=" + review + ", address=" + address + "]";
+	}
+	
+	
 	
 	
 	

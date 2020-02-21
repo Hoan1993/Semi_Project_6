@@ -18,8 +18,8 @@ public class SendEmail {
 
 	public void sendEmail(String name, String email, String pwd) {
 		String host = "smtp.naver.com";
-		final String user = "sist2020@naver.com";
-		final String password = "Sist2020!";
+		final String user = "comsist85@naver.com";
+		final String password = "wkqkvmfhwprxm1!";
 		
 		String to = email;
 
@@ -37,8 +37,8 @@ public class SendEmail {
 		props.put("mail.smtp.host", host);
 		props.put("mail.smtp.port", "587"); //587
 		props.put("mail.enable.ssl", "true");
-		props.put("mail.user", "sist2020");
-		props.put("mail.password", "Sist2020!");
+		props.put("mail.user", "comsist85@naver.com");
+		props.put("mail.password", "wkqkvmfhwprxm1!");
 		props.put("mail.smtp.starttls.enable", "true");
 		props.put("mail.smtp.auth", "true");
 		props.put("mail.smtp.ssl.trust", "smtp.naver.com");

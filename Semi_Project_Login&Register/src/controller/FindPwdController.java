@@ -23,7 +23,7 @@ public class FindPwdController {
 	public void findPwd(String userid, int pwdq, String pwda) {
 		String result = model.findUserpwd(userid, pwdq, pwda);
 		result = RandomPwd();
-		model.updateRandomPWD(result);
+		model.updateRandomPWD(result, userid);
 		String email = model.toSendEmail(userid);
 		String name = model.findName(userid);
 		// 이메일이 있는 것. 따라서 이 이메일로 id를 보내야 한다. result에 아이디가 들어있다. 

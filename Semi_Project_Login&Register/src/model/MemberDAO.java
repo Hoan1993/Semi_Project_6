@@ -1,12 +1,18 @@
 package model;
 
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 import util.DBManager;
 
@@ -44,6 +50,7 @@ public class MemberDAO {
 				mVo.setEmail(rs.getString("email"));
 				mVo.setPwdq(rs.getInt("pwdq"));
 				mVo.setPwda(rs.getString("pwda"));
+				mVo.setBudget(rs.getInt("budget"));
 				
 				list.add(mVo);
 			}
@@ -91,7 +98,7 @@ public class MemberDAO {
 
 	
 	public int insertMember(MemberVO mVo) {
-		String sql = "insert into member_c values(?,?,?,?,?,?,?)";
+		String sql = "insert into member_c values(?,?,?,?,?,?,?,?,?)";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int result = -1;
@@ -109,6 +116,8 @@ public class MemberDAO {
 			pstmt.setString(5, mVo.getEmail());
 			pstmt.setInt(6, mVo.getPwdq());
 			pstmt.setString(7, mVo.getPwda());
+			pstmt.setInt(8, mVo.getBudget());
+			pstmt.setInt(9, mVo.getBalance());
 			result = pstmt.executeUpdate();
 			
 			DBManager.close(conn, pstmt);
@@ -289,7 +298,9 @@ public class MemberDAO {
 				mVo.setAddress(rs.getString("address"));
 				mVo.setEmail(rs.getString("email"));
 				mVo.setPwdq(rs.getInt("pwdq"));
-				mVo.setPwda(rs.getString("pwda"));				
+				mVo.setPwda(rs.getString("pwda"));
+				mVo.setBudget(rs.getInt("budget"));
+				mVo.setBalance(rs.getInt("balance"));
 				//list.add(mVo);
 			}
 		} catch(Exception e) {
@@ -327,24 +338,197 @@ public class MemberDAO {
 		return result;
 	}
 
-	public void updateRandomPWD(String randomPwd) {
-		String sql = "update member_c set userpwd=?";
+	public void updateRandomPWD(String randomPwd, String userid) {
+		String sql = "update member_c set userpwd=? where userid=?";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try {
 			conn = DBManager.getConnection();
 			pstmt = conn.prepareStatement(sql);
-
+			
+			
 			pstmt.setString(1, randomPwd);
-	
+			pstmt.setString(2, userid);
+			
 			pstmt.executeUpdate();
+			DBManager.close(conn, pstmt);
+		} catch(Exception e) {
+			e.printStackTrace();
+		} 
+	
+		
+	}
+
+	
+	// 스케쥴러를 위한 메서드.
+	public int makeSchedule(String userid, int date) {
+		String sql = "insert into myCal values(?,?,?)";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		int result = -1;
+		
+		try {
+			
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, userid);
+			pstmt.setInt(2, date);
+			pstmt.setInt(3, 1);
+			result = pstmt.executeUpdate();
+			
+			DBManager.close(conn, pstmt);
+		} catch(Exception e) {
+			//e.printStackTrace();
+			result = 0;
+		} 
+		
+		
+		return result;		
+		
+	}
+
+	public Food_VO getFoodInfoByNum(int foodNum) {
+		String sql = "select * from food_table2 where bno=?";
+		Food_VO fVo = new Food_VO();
+		
+		byte [] barr = null;
+		/*byte [] barr2 = null*/;
+		ImageIcon iconTest = null;
+		ImageIcon iconTest2 = null;
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = DBManager.getConnection();
+			//stmt = conn.createStatement();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, foodNum);
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {// now on 1st row	
+				fVo = new Food_VO();
+				
+				Blob b  = rs.getBlob(2);
+				barr = b.getBytes(1,(int)b.length());
+				BufferedImage image = ImageIO.read(new ByteArrayInputStream(barr));
+				iconTest = new ImageIcon(image);
+				
+				b  = rs.getBlob(3);
+				barr = b.getBytes(1,(int)b.length());
+				BufferedImage image1 = ImageIO.read(new ByteArrayInputStream(barr));
+				iconTest2 = new ImageIcon(image1);
+				
+				fVo.setBno(rs.getInt("bno"));
+				fVo.setIcon(iconTest);
+				fVo.setIcon2(iconTest2);
+				fVo.setStore_name(rs.getString("store_name"));
+				fVo.setFood_name(rs.getString("food_name"));
+				fVo.setPrice(rs.getInt("price"));
+				fVo.setReview(rs.getString("review"));
+				fVo.setAddress(rs.getString("address"));
+			} 
+			
+			
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
-			DBManager.close(conn, pstmt);
+			DBManager.close(conn, pstmt, rs);
 		}
+
+		return fVo;
+	}
 	
+
+	public MyCalVO getMCVOByUserid(String userid, int selectDay) {
+		String sql = "select * from myCal_c where userid=? and mydate=?";
 		
+		/*Food_VO fVo = new Food_VO();*/
+		MyCalVO mcVO = null;
+
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = DBManager.getConnection();
+			//stmt = conn.createStatement();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, userid);
+			pstmt.setInt(2, selectDay);
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {// now on 1st row	
+				mcVO = new MyCalVO();
+				
+				mcVO.setUserId(rs.getString("userid"));
+				mcVO.setMyDate(rs.getString("mydate"));
+				mcVO.setFoodNum(rs.getInt("bno"));
+				
+			} 
+			
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		return mcVO;
+	}
+
+	public Food_VO searchInfoByFoodName(String food_name) {
+		Food_VO fVo = null;
+		String sql = "select * from food_table2 where food_name=?";
+		
+		byte [] barr = null;
+		/*byte [] barr2 = null*/;
+		ImageIcon iconTest = null;
+		ImageIcon iconTest2 = null;
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+		 	conn = DBManager.getConnection();
+		 	pstmt = conn.prepareStatement(sql);
+		 	pstmt.setString(1, food_name);
+		 	rs = pstmt.executeQuery();
+		 	
+		 	if(rs.next()) {
+		 		fVo = new Food_VO();
+				
+				Blob b  = rs.getBlob(2);
+				barr = b.getBytes(1,(int)b.length());
+				BufferedImage image = ImageIO.read(new ByteArrayInputStream(barr));
+				iconTest = new ImageIcon(image);
+				
+				b  = rs.getBlob(3);
+				barr = b.getBytes(1,(int)b.length());
+				BufferedImage image1 = ImageIO.read(new ByteArrayInputStream(barr));
+				iconTest2 = new ImageIcon(image1);
+				
+				fVo.setBno(rs.getInt("bno"));
+				fVo.setIcon(iconTest);
+				fVo.setIcon2(iconTest2);
+				fVo.setStore_name(rs.getString("store_name"));
+				fVo.setFood_name(rs.getString("food_name"));
+				fVo.setPrice(rs.getInt("price"));
+				fVo.setReview(rs.getString("review"));
+				fVo.setAddress(rs.getString("address"));
+		 	}
+		 		
+		 	
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		
+		
+		return fVo;
 	}
 	
 }

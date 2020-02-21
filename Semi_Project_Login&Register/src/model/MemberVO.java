@@ -8,6 +8,23 @@ public class MemberVO {
 	private String email;
 	private Integer pwdq;
 	private String pwda;
+	private Integer budget;
+	private Integer balance;
+	
+	
+	
+	public Integer getBalance() {
+		return balance;
+	}
+	public void setBalance(Integer balance) {
+		this.balance = balance;
+	}
+	public Integer getBudget() {
+		return budget;
+	}
+	public void setBudget(Integer budget) {
+		this.budget = budget;
+	}
 	
 	public String getName() {
 		return name;
@@ -53,13 +70,14 @@ public class MemberVO {
 		this.pwda = pwda;
 	}
 	
+	@Override
+	public String toString() {
+		return "MemberVO [name=" + name + ", userid=" + userid + ", userpwd=" + userpwd + ", address=" + address
+				+ ", email=" + email + ", pwdq=" + pwdq + ", pwda=" + pwda + ", budget=" + budget + ", balance="
+				+ balance + "]";
+	}
 	
-	/*그놔나.. 얼른와서 동호오빠를 쫓아내줘..
-	내자리...
-	ㅜㅜ
-	내자리를 돌려줘
-	너때문에 나까지 자리를 잃었잖아
-	2020.01.22 수
-	*/
+	
+	
 	
 }

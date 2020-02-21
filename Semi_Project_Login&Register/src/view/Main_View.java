@@ -19,6 +19,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
+import controller.MainController;
 import controller.Semi_Main_Controller;
 import model.Food_DAO;
 import model.Food_VO;
@@ -29,6 +30,7 @@ import util.RoundedButton;
 public class Main_View extends JFrame {
 
 	//private static Main_View view = new Main_View();
+	private static Main_View view;
 	
 	BufferedImage img = null;
 
@@ -133,7 +135,7 @@ public class Main_View extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				Button_Calandar bc = new Button_Calandar("Me", 1, "1", mVo);
+				Button_Calandar bc = new Button_Calandar(mVo);
 				
 			}
 		});
@@ -157,10 +159,13 @@ public class Main_View extends JFrame {
 		// 서치 버튼.
 		//JButton btnNewButton = new JButton("Search");
 		JButton btnNewButton = new RoundedButton("O");
+		MainController controller_1 = new MainController(this);
 		btnNewButton.setBackground(SystemColor.activeCaption);
 		//btnNewButton.setBackground(Color.CYAN);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				controller_1.search(mVo, textField.getText());
+				
 			}
 		});
 		btnNewButton.setBounds(340, 29, 40, 27);

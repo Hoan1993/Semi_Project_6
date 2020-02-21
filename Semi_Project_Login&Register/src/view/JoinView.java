@@ -437,6 +437,8 @@ public class JoinView extends JFrame{
 						mVo.setEmail(txtUserEmail.getText());
 						mVo.setPwdq(jcb.getSelectedIndex());
 						mVo.setPwda(txtPwdAnswer.getText());
+						mVo.setBudget(0);
+						mVo.setBalance(0);
 						
 						controller.join(mVo, txtUserid, txtUserEmail);					
 					} 

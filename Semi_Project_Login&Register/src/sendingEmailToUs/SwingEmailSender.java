@@ -140,7 +140,7 @@ public class SwingEmailSender extends JFrame {
         }
          
         //String toAddress = fieldTo.getText();
-        String toAddress = "sist2020@naver.com";
+        String toAddress = "comsist85@naver.com";
         String subject = fieldSubject.getText();
         String message = textAreaMessage.getText();
 

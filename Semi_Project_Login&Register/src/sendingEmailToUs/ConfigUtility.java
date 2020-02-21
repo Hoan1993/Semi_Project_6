@@ -22,8 +22,8 @@ public class ConfigUtility {
         // sets default properties
         defaultProps.setProperty("mail.smtp.host", "smtp.naver.com");
         defaultProps.setProperty("mail.smtp.port", "587");
-        defaultProps.setProperty("mail.user", "sist2020@naver.com");
-        defaultProps.setProperty("mail.password", "Sist2020!");
+        defaultProps.setProperty("mail.user", "comsist85@naver.com");
+        defaultProps.setProperty("mail.password", "wkqkvmfhwprxm1!");
         defaultProps.setProperty("mail.smtp.starttls.enable", "true");
         defaultProps.setProperty("mail.smtp.auth", "true");
          

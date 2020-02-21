@@ -46,7 +46,7 @@ public class LoginView extends JFrame {
     	// 깃 테스트
     	setFont(new Font("바탕", Font.PLAIN, 12));	
     	getContentPane().setBackground(Color.WHITE);
-        setTitle("가만안둬조");
+        setTitle("오늘뭐먹죠?");
         setResizable(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         /*setExtendedState(JFrame.MAXIMIZED_BOTH); */

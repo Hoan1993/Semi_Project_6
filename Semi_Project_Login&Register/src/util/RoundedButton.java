@@ -11,6 +11,11 @@ import javax.swing.JButton;
 
 public class RoundedButton extends JButton {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public RoundedButton() {
 
 		super();
