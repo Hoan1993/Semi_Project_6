@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+body{	/* 문서 전체에 대한 디자인 적용 */
+	font-size: 14px;
+	font-family: 맑은 고딕;
+}
+
+/* 문서 중에서 로그인 영역에 대한 디자인 적용 */
+#login{
+	float: right;	/* 문서의 오른쪽에 배치하는 설정 */
+	margin: 0px 20px 0 0;
+	font-family: 맑은 고딕, Arial;
+	font-size: 12px;
+	word-spacing: 5px;	/* 글자와 글자 사이의 간격. 자간 */
+	font-style: bole;
+	text-shadow: 1px 2px 2px #666;
+}
+/* 로그인 영역의 a 태그 디자인적용 */
+#login a{
+	text-decoration: none;	/* a 태그 밑줄 제거 설정 */
+	color: #333;
+}
+/* 로그인 영역의 a 태그 마우스 오버시 디자인적용 */
+#login a:hover {
+	color: #F90;
+}
+/*전체 div 태그에 대한 디자인 적용*/
+.container1{
+	width: 950px;	/* 문서 전체의 폭 설정 */
+	margin: 0 auto;	/* 문서의 바깥쪽 여백 설정 */
+	background-color: #fff;	/* 문서의 배경색 설정 */
+	border: 1px solid #e8e2ae;
+}
+/* header 영역 디자인 적용 */
+header{	/* 머릿말 디자인 */
+	height: 200px;
+	margin-top: 20px;
+	background-image: url("../images/bg.jpg"); 
+	background-repeat: no-repeat;	/* 이미지 반복 없음 */
+	background-position: center top;	/* 이미지 위치 */
+}
+
+header hgroup{/* header 영역의 hgroup 태그 디자인 적용 */
+	position: relative;
+	top: 60px;
+	left:180px;
+}
+
+header h1{/* header 영역의 주제목 디자인 적용 */
+	font-size: 2.5em;
+	color: #F2CB78;
+	text-shadow: 1px 2px 2px #000;
+}
+header h2{/* header 영역의 부제목 디자인 적용 */
+	font-size: 2.5em;
+	color: #e18048;
+	text-shadow: 0px 1px 1px #000;
+}
+
+
+
+#center-top ul li{
+	list-style: none;
+	margin-left : 30px;
+	float : left;	
+	text-align: center;
+}
+
+
+
